@@ -18,8 +18,3 @@ fi
 . $VENV/bin/activate
 
 pip install -r requirements.txt
-
-if [ ! -f ./.setGPIO ]; then
-    touch .setGPIO
-    sudo chown _snips-skills .setGPIO
-fi
