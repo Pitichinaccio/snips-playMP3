@@ -30,12 +30,12 @@ def subscribe_intent_callback(hermes, intentMessage):
     # conf = read_configuration_file(CONFIG_INI)
     # action_wrapper(hermes, intentMessage, conf)
     intentname = intentMessage.intent.intent_name
-    if intentname == "bertron:GPIOlow":
+    if intentname == "bertron:GPIOhigh":
         result_sentence = "Die LED ist eingeschaltet"
         led.on()
         hermes.publish_end_session(intentMessage.session_id, result_sentence)
 
-    elif intentname == "bertron:GPIOhigh":
+    elif intentname == "bertron:GPIOlow":
         result_sentence = "Die LED ist ausgeschaltet"
         led.off()
         hermes.publish_end_session(intentMessage.session_id, result_sentence)
