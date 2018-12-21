@@ -4,7 +4,7 @@
 import ConfigParser
 from hermes_python.hermes import Hermes
 from hermes_python.ontology import *
-from gpiozero import LED
+import pygame
 import io
 
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
@@ -30,15 +30,13 @@ def subscribe_intent_callback(hermes, intentMessage):
     # conf = read_configuration_file(CONFIG_INI)
     # action_wrapper(hermes, intentMessage, conf)
     intentname = intentMessage.intent.intent_name
-    if intentname == "bertron:GPIOhigh":
-        result_sentence = "Die LED ist eingeschaltet"
-        led.on()
+    if intentname == "bertron:playMP3":
+        mixer.init()
+        mixer.music.load('/usr/music/katyush2.mp3')
+        mixer.music.play()
+        result_sentence = "War das nicht toll"
         hermes.publish_end_session(intentMessage.session_id, result_sentence)
 
-    elif intentname == "bertron:GPIOlow":
-        result_sentence = "Die LED ist ausgeschaltet"
-        led.off()
-        hermes.publish_end_session(intentMessage.session_id, result_sentence)
 
 
 #def action_wrapper(hermes, intentMessage, conf):
