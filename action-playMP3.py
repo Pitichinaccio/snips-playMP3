@@ -4,7 +4,7 @@
 import ConfigParser
 from hermes_python.hermes import Hermes
 from hermes_python.ontology import *
-from playsound import playsound
+import subprocess
 import io
 
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
@@ -24,13 +24,15 @@ CONFIGURATION_ENCODING_FORMAT = "utf-8"
 #             return conf_parser.to_dict()
 #     except (IOError, ConfigParser.Error) as e:
 #         return dict()
+def play_mp3(path):
+    subprocess.Popen(['mpg321', '-q', path]).wait()
 
 def subscribe_intent_callback(hermes, intentMessage):
     # conf = read_configuration_file(CONFIG_INI)
     # action_wrapper(hermes, intentMessage, conf)
     intentname = intentMessage.intent.intent_name
     if intentname == "bertron:playMP3":
-        playsound('/usr/music/katyush2.mp3')
+        play_mp3('/usr/music/katyush2.mp3')
         # mixer.init()
         # mixer.music.load('/usr/music/katyush2.mp3')
         # mixer.music.play()
