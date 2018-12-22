@@ -36,8 +36,6 @@ def subscribe_intent_callback(hermes, intentMessage):
         result_sentence = "War das nicht toll"
         hermes.publish_end_session(intentMessage.session_id, result_sentence)
 
-
-
 #def action_wrapper(hermes, intentMessage, conf):
 #    """ Write the body of the function that will be executed once the intent is recognized. 
 #    In your scope, you have the following objects : 
