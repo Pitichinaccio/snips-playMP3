@@ -4,7 +4,7 @@
 import ConfigParser
 from hermes_python.hermes import Hermes
 from hermes_python.ontology import *
-import pygame
+from playsound import playsound
 import io
 
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
@@ -30,9 +30,10 @@ def subscribe_intent_callback(hermes, intentMessage):
     # action_wrapper(hermes, intentMessage, conf)
     intentname = intentMessage.intent.intent_name
     if intentname == "bertron:playMP3":
-        mixer.init()
-        mixer.music.load('/usr/music/katyush2.mp3')
-        mixer.music.play()
+        playsound('/usr/music/katyush2.mp3')
+        # mixer.init()
+        # mixer.music.load('/usr/music/katyush2.mp3')
+        # mixer.music.play()
         result_sentence = "War das nicht toll"
         hermes.publish_end_session(intentMessage.session_id, result_sentence)
 
