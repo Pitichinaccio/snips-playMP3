@@ -5,7 +5,8 @@ import ConfigParser
 from hermes_python.hermes import Hermes
 from hermes_python.ontology import *
 # import subprocess
-import vlc
+# import vlc
+from playsound import playsound
 import io
 
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
@@ -28,8 +29,9 @@ CONFIGURATION_ENCODING_FORMAT = "utf-8"
 def play_mp3(path):
     #subprocess.Popen(['mpg123', '-q', path]).wait()
     #subprocess.Popen(['mpg321', '-q', path]).wait()
-    player = vlc.MediaPlayer(path)
-    player.play()
+    #player = vlc.MediaPlayer(path)
+    #player.play()
+    playsound(path)
 
 def subscribe_intent_callback(hermes, intentMessage):
     # conf = read_configuration_file(CONFIG_INI)
