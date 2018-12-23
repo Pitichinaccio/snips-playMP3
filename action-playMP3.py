@@ -7,6 +7,7 @@ from hermes_python.ontology import *
 import subprocess
 import io
 import os
+import Rpi.GPIO
 
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
 #CONFIG_INI = "config.ini"
