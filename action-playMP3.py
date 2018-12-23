@@ -6,6 +6,7 @@ from hermes_python.hermes import Hermes
 from hermes_python.ontology import *
 import subprocess
 import io
+# import os
 
 
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
