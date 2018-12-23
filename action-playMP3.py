@@ -25,8 +25,8 @@ CONFIGURATION_ENCODING_FORMAT = "utf-8"
 #     except (IOError, ConfigParser.Error) as e:
 #         return dict()
 def play_mp3(path):
-    # subprocess.Popen(['mpg123', '-q', path]).wait()
-    subprocess.Popen(['mpg123', '-q', path])
+    subprocess.Popen(['mpg123', '-q', path]).wait()
+    subprocess.Popen(['mpg321', '-q', path]).wait()
 
 def subscribe_intent_callback(hermes, intentMessage):
     # conf = read_configuration_file(CONFIG_INI)
@@ -37,8 +37,8 @@ def subscribe_intent_callback(hermes, intentMessage):
         # mixer.init()
         # mixer.music.load('/usr/music/katyush2.mp3')
         # mixer.music.play()
-        # result_sentence = "War das nicht toll"
-        # hermes.publish_end_session(intentMessage.session_id, result_sentence)
+        result_sentence = "War das nicht toll"
+        hermes.publish_end_session(intentMessage.session_id, result_sentence)
 
 #def action_wrapper(hermes, intentMessage, conf):
 #    """ Write the body of the function that will be executed once the intent is recognized. 
