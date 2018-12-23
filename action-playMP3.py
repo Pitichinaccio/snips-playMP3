@@ -25,7 +25,8 @@ CONFIGURATION_ENCODING_FORMAT = "utf-8"
 #     except (IOError, ConfigParser.Error) as e:
 #         return dict()
 def play_mp3(path):
-    subprocess.Popen(['mpg123', '-q', path]).wait()
+    # subprocess.Popen(['mpg123', '-q', path]).wait()
+    subprocess.Popen(['mpg123', '-q', path])
 
 def subscribe_intent_callback(hermes, intentMessage):
     # conf = read_configuration_file(CONFIG_INI)
